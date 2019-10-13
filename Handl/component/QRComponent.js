@@ -41,7 +41,8 @@ class QRComponent extends Component {
           //Logo of in the center of QR Code (Optional)
           logo={{
             url:
-            "https://scontent.cdninstagram.com/vp/c0da43e61b9e5db902713bd587940c1b/5E35A6D1/t51.2885-19/s150x150/66471454_466086287547047_7184958147033825280_n.jpg?_nc_ht=scontent.cdninstagram.com"       
+            ''
+            //"https://scontent.cdninstagram.com/vp/c0da43e61b9e5db902713bd587940c1b/5E35A6D1/t51.2885-19/s150x150/66471454_466086287547047_7184958147033825280_n.jpg?_nc_ht=scontent.cdninstagram.com"       
           }}
           //Center Logo size  (Optional)
           logoSize={30}

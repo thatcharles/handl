@@ -16,6 +16,9 @@ import {AppRegistry,
 import firebase from 'firebase'
 import 'firebase/firestore'
 import QRComponent from '../component/QRComponent'
+import CardComponent from '../component/CardComponent'
+import Profile from '../component/profile'
+// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 export default class Home extends Component {
     constructor(props) {
@@ -30,6 +33,7 @@ export default class Home extends Component {
             transactionType: ''
         }
     }
+
 
     submitForm = () => {
 
@@ -67,7 +71,8 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <QRComponent />
+                <CardComponent/>
+                <Profile/>
             </View>
         )
     }
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('Home', () => Home);
-
+// <QRComponent/>
 /*
 
                 <Text>Select Payment Type</Text>

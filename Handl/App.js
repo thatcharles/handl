@@ -1,24 +1,118 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, Button } from 'react-native';
-import Fetch from './component/Fetch';
-import Buy from './component/Buy';
+// import Fetch from './component/Fetch';
+// import Buy from './component/Buy';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 import Login from './pages/Login'
-import Home from './pages/Home'
+// import Home from './pages/Home'
+import Intro from './component/Intro'
 import Signup from './pages/Signup'
+// import AppDrawerNavigator from './component/DrawerNavigator'
 
 import ApiKeys from './assets/ApiKeys'
 import firebase from 'firebase'
 import 'firebase/firestore'
 
+import Setting from './component/Setting'
+import QRcodes from './component/CardComponent'
+import Profile from './component/profile'
+import AddContact from './component/addContact'
+import { Ionicons } from '@expo/vector-icons'
+
+const HomeBottomTabNavigator = createBottomTabNavigator(
+  {
+      Profile,
+      QRcodes,
+      AddContact,
+  },
+  {
+      navigationOptions:({navigation})=>{
+          const {routeName} = navigation.state.routes[navigation.state.index] 
+          if (routeName == 'Profile'){
+            return {
+                headerTitle: routeName,
+                headerRight: <Text style={{marginRight: 20}}>Save</Text>,
+                headerLeft: <Ionicons 
+                                name="md-menu" 
+                                onPress={()=>navigation.openDrawer()}
+                                size={30} 
+                                style={{marginLeft: 15}}/>
+            }
+          }
+          else{
+            return {
+              headerTitle: routeName,
+              headerLeft: <Ionicons 
+                              name="md-menu" 
+                              onPress={()=>navigation.openDrawer()}
+                              size={30} 
+                              style={{marginLeft: 15}}/>
+            }
+          }
+      }
+  }
+)
+
+const HomeStackNavigator = createStackNavigator(
+  {
+      HomeBottomTabNavigator: HomeBottomTabNavigator
+  }
+)
+
+const SettingBottomTabNavigator = createBottomTabNavigator(
+  {
+      Setting
+  },
+  {
+      navigationOptions:({navigation})=>{
+          return {
+              headerTitle: 'Setting',
+              headerRight: <Text style={{marginRight: 20}}>Save</Text>,
+              headerLeft: <Ionicons 
+                              name="md-menu" 
+                              onPress={()=>navigation.openDrawer()}
+                              size={30} 
+                              style={{marginLeft: 15}}/>
+          }
+      }
+  }
+)
+
+const SettingStackNavigator = createStackNavigator(
+  {
+      SettingBottomTabNavigator: SettingBottomTabNavigator
+  }
+)
+
+const AppDrawerNavigator = createDrawerNavigator(
+  {
+      Home:{
+          screen: HomeStackNavigator
+      },
+      Setting:{
+          screen: SettingStackNavigator
+      },
+  }
+  ,
+  {
+      initialRouteName: 'Home'
+  }
+)
+
 const Navigator = createSwitchNavigator(
   {
     Login: Login,
-    Home: Home,
+    Home: {screen: AppDrawerNavigator},
+    Intro: Intro,
     Signup: Signup
   },
   {
-    initialRouteName: 'Login'
+    // initialRouteName: 'Login'
+    initialRouteName: 'Home'
   }
 );
 
@@ -37,6 +131,7 @@ export default class App extends Component {
       messagingSenderId: "514348001827",
       appId: "1:514348001827:web:1511fd95cfd776be031f96"
     });
+    console.log(ApiKeys)
   }
 
   render() {
