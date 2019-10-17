@@ -17,6 +17,8 @@ import firebase from 'firebase'
 import 'firebase/firestore'
 import { AppRegistry, StyleSheet, TouchableOpacity,ScrollView, Text, View, Dimensions, Image, Animated, FlatList,Platform } from 'react-native';
 
+import QRComponent from './QRComponent'
+
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
@@ -52,7 +54,7 @@ export default class CardComponent extends Component {
             >
                 <View style={styles.slide}>
                     <View style={styles.scrollview}>
-                        <Image source={require('../assets/QRcode/1.png')} style={{width: 300, height: 300}}/>
+                        <QRComponent/>
                     </View>
                     <Text>
                         LinkedIn

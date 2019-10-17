@@ -30,28 +30,7 @@ class QRComponent extends Component {
     return (
       <View style={styles.MainContainer}>
         <QRCode
-          //QR code value
-          value={this.state.valueForQRCode ? this.state.valueForQRCode : 'NA'}
-          //size of QR Code
-          size={250}
-          //Color of the QR Code (Optional)
-          color="black"
-          //Background Color of the QR Code (Optional)
-          backgroundColor="white"
-          //Logo of in the center of QR Code (Optional)
-          logo={{
-            url:
-            ''
-            //"https://scontent.cdninstagram.com/vp/c0da43e61b9e5db902713bd587940c1b/5E35A6D1/t51.2885-19/s150x150/66471454_466086287547047_7184958147033825280_n.jpg?_nc_ht=scontent.cdninstagram.com"       
-          }}
-          //Center Logo size  (Optional)
-          logoSize={30}
-          //Center Logo margin (Optional)
-          logoMargin={2}
-          //Center Logo radius (Optional)
-          logoBorderRadius={15}
-          //Center Logo background (Optional)
-          logoBackgroundColor="blue"
+          value="http://awesome.link.qr"
         />
         <TextInput
           // Input to get the value to set on QRCode
@@ -100,3 +79,30 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
+/*
+<QRCode
+          //QR code value
+          value={this.state.valueForQRCode ? this.state.valueForQRCode : 'NA'}
+          //size of QR Code
+          size={250}
+          //Color of the QR Code (Optional)
+          color="black"
+          //Background Color of the QR Code (Optional)
+          backgroundColor="white"
+          //Logo of in the center of QR Code (Optional)
+          logo={{
+            url:
+            ''
+            //"https://scontent.cdninstagram.com/vp/c0da43e61b9e5db902713bd587940c1b/5E35A6D1/t51.2885-19/s150x150/66471454_466086287547047_7184958147033825280_n.jpg?_nc_ht=scontent.cdninstagram.com"       
+          }}
+          //Center Logo size  (Optional)
+          logoSize={30}
+          //Center Logo margin (Optional)
+          logoMargin={2}
+          //Center Logo radius (Optional)
+          logoBorderRadius={15}
+          //Center Logo background (Optional)
+          logoBackgroundColor="blue"
+        />
+*/

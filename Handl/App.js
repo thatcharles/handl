@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Button } from 'react-native';
+import {StyleSheet, Text, View, Button, TextInput,TouchableOpacity } from 'react-native';
 // import Fetch from './component/Fetch';
 // import Buy from './component/Buy';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
@@ -102,7 +102,6 @@ const AppDrawerNavigator = createDrawerNavigator(
       initialRouteName: 'Home'
   }
 )
-
 const Navigator = createSwitchNavigator(
   {
     Login: Login,
@@ -111,7 +110,7 @@ const Navigator = createSwitchNavigator(
     Signup: Signup
   },
   {
-    // initialRouteName: 'Login'
+    //initialRouteName: 'Login'
     initialRouteName: 'Home'
   }
 );
@@ -147,5 +146,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
-  },
+  }
 });
+
+
+// "react-native-svg": "^9.11.1",
+// "react-native-qrcode": "^0.2.7",
+// "react-native-qrcode-svg": "^5.2.0",
