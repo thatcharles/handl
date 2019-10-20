@@ -15,6 +15,8 @@ import {AppRegistry,
     Picker
     }from 'react-native';
 import { CheckBox } from 'react-native-elements'
+import { AsyncStorage } from "react-native";
+
 
 export default class Profile extends Component {
 
@@ -31,6 +33,35 @@ export default class Profile extends Component {
             switchLNValue: false,
             switchIGValue: false,
             text: ''
+        }
+        this.key = 'contactData';
+        this.item = {
+                cardNum: 3,
+                cards: [
+                    {name: 'phone', data: 
+                        `BEGIN:VCARD
+                        VERSION:3.0
+                        N:Huang;Kai-Chieh
+                        FN:Kai-Chieh Huang
+                        ORG:mycompany
+                        TEL;CELL:4045438900
+                        EMAIL;WORK;INTERNET:kenneth7882@gmail.com
+                        END:VCARD`
+                    },
+                    {name: 'facebook', data: 'https://www.facebook.com/kenneth7882'},
+                    {name: 'linkedin', data: 'www.linkedin.com/in/kc-kenneth-huang'},
+                ]
+            }
+    }
+
+    _storeData = async () => {
+        try {
+            await AsyncStorage.setItem(this.key, JSON.stringify(this.item));
+            qrCardsUpToDate = false;          
+            console.log('contact data stored');
+        } catch (error) {
+            // Error saving data
+            console.log('error saving user\'s contact data');
         }
     }
     
@@ -61,7 +92,7 @@ export default class Profile extends Component {
                     <Switch onValueChange={() => this.setState({switchIGValue: !this.state.switchIGValue})} value = {this.state.switchIGValue} />
                 </View>
                 <View style={styles.btnContainer}>
-                    < TouchableOpacity style={styles.userBtn}>
+                    < TouchableOpacity style={styles.userBtn} onPress={this._storeData}>
                             <Text style={styles.btnText} >Save</Text>
                     </TouchableOpacity>
                 </View>

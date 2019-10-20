@@ -23,6 +23,7 @@ import Profile from './component/profile'
 import AddContact from './component/addContact'
 import { Ionicons } from '@expo/vector-icons'
 
+var qrCardsUpToDate = true;
 const HomeBottomTabNavigator = createBottomTabNavigator(
   {
       Profile,
