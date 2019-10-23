@@ -15,7 +15,7 @@ import {AppRegistry,
 import ApiKeys from '../assets/ApiKeys'
 import firebase from 'firebase'
 import 'firebase/firestore'
-import { AppRegistry, StyleSheet, TouchableOpacity,ScrollView, Text, View, Dimensions, Image, Animated, FlatList,Platform } from 'react-native';
+import { AppRegistry, StyleSheet, TouchableOpacity,ScrollView, Text, View, Dimensions, Image, Animated, FlatList,Platform, Linking } from 'react-native';
 
 import { AsyncStorage } from "react-native"
 import QRCode from 'react-native-qrcode-svg';
@@ -107,7 +107,8 @@ export default class CardComponent extends Component {
                                 size = {300}
                             />
                             </View>
-                            <Text>
+                            <Text style={{color: 'blue', fontSize: 18, marginTop: 15}}
+                                onPress={() => Linking.openURL(qrData)}>
                                 {textDisplay}
                             </Text>
                         </View>

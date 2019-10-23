@@ -163,9 +163,9 @@ export default class Profile extends Component {
             this.item.cards.push({display: false, name: 'facebook', data: 'https://www.facebook.com/kenneth7882'});
         }
         if(this.state.switchLIValue){
-            this.item.cards.push({display: true, name: 'linkedin', data: 'www.linkedin.com/in/kc-kenneth-huang'});
+            this.item.cards.push({display: true, name: 'linkedin', data: 'https://www.linkedin.com/in/kc-kenneth-huang'});
         }else{
-            this.item.cards.push({display: false, name: 'linkedin', data: 'www.linkedin.com/in/kc-kenneth-huang'});
+            this.item.cards.push({display: false, name: 'linkedin', data: 'https://www.linkedin.com/in/kc-kenneth-huang'});
         }
 
         // save profile to storage
