@@ -15,7 +15,7 @@ import {AppRegistry,
 import ApiKeys from '../assets/ApiKeys'
 import firebase from 'firebase'
 import 'firebase/firestore'
-import { AppRegistry, StyleSheet, TouchableOpacity,ScrollView, Text, View, Dimensions, Image, Animated, FlatList,Platform } from 'react-native';
+import { AppRegistry, StyleSheet, TouchableOpacity,ScrollView, Text, View, Dimensions, Image, Animated, FlatList,Platform, Linking } from 'react-native';
 
 import { AsyncStorage } from "react-native"
 import QRCode from 'react-native-qrcode-svg';
@@ -37,26 +37,31 @@ export default class CardComponent extends Component {
         this.cardData = {};
     }
 
-    /*async componentDidMount(){
-        try {
-            this.cardData = await AsyncStorage.getItem('contactData');
-            this.setState({cardDataRetrieved: true});
-        }catch(error){
-            console.log("error retrieving contactData from AsyncStorage");
-        }
-    }*/
+    componentDidMount(){
+        this.loadData();
+    }
 
-    async componentDidMount(){
-        try {
-            this.retrieveItem('contactData').then((contactData) => {
-                this.cardData = contactData;
-                console.log('number of cards loaded: ' + this.cardData.cardNum);
-                this.setState({cardDataRetrieved: true});
-            });
-        }catch(error){
-            console.log("error retrieving contactData from AsyncStorage");
+    componentDidUpdate(){
+        if(!qrCardsUpToDate){
+            this.loadData();
         }
     }
+
+    async loadData() {
+        if(!qrCardsUpToDate){
+            try {
+                this.retrieveItem('contactData').then((contactData) => {
+                    this.cardData = contactData;
+                    console.log('number of cards loaded: ' + this.cardData.cards.length);
+                    console.log(this.cardData);
+                    qrCardsUpToDate = true;
+                    this.setState({cardDataRetrieved: true});
+                });
+            }catch(error){
+                console.log("error retrieving contactData from AsyncStorage");
+            }
+        }
+      }
 
     async retrieveItem(key) {
         try {
@@ -69,26 +74,49 @@ export default class CardComponent extends Component {
         return;
       }
 
-      /*!!!!!!!!! todo: update cards after save event on the other page !!!!!!!!!!!!*/
     render() {
         let qrCards = [];
         if(this.state.cardDataRetrieved){
-                for(let i = 0; i < this.cardData.cardNum; i++){
+            let cardNum = this.cardData.cards.length;
+            for(let i = 0; i < cardNum; i++){
+                const card = this.cardData.cards[i];
+                if(card.display){
+                    let textDisplay = '';
+                    let qrData = '';
+                    if(card.name == 'phone'){
+                        qrData += 'BEGIN:VCARD\nVERSION:3.0\n';
+                        qrData += 'N:' + card.data.lastName + ';' + card.data.firstName + '\n';
+                        qrData += 'FN:' + card.data.firstName + ' ' + card.data.lastName + '\n';
+                        qrData += 'TEL;CELL:' + card.data.phoneNumber + '\n';
+                        qrData += 'EMAIL;WORK;INTERNET:' + card.data.emailAddress + '\n';
+                        qrData += 'END:VCARD';
+                        
+                        textDisplay = 'My Phone Number';
+                    }else if(card.name == 'facebook'){
+                        textDisplay = 'My Facebook Profile Page';
+                        qrData = card.data;
+                    }else if(card.name == 'linkedin'){
+                        textDisplay = 'My LinkedIn Profile Page';
+                        qrData = card.data;
+                    }
                     qrCards.push(
                         <View key = {i} style={styles.slide}>
                             <View style={styles.scrollview}>
                             <QRCode
-                                value={this.cardData.cards[i].data}
+                                value={qrData}
                                 size = {300}
                             />
                             </View>
-                            <Text>
-                                {this.cardData.cards[i].name}
+                            <Text style={{color: 'blue', fontSize: 18, marginTop: 15}}
+                                onPress={() => Linking.openURL(qrData)}>
+                                {textDisplay}
                             </Text>
                         </View>
-                    );
+                    );    
                 }
-                console.log('cards generated');
+                
+            }
+            console.log('cards generated');
             return (
                 <ScrollView
                 horizontal = {true}
