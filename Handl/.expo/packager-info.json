@@ -1,27 +1,10 @@
 {
   "devToolsPort": 19002,
-<<<<<<< HEAD
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-=======
   "expoServerPort": 19000,
-<<<<<<< HEAD
   "packagerPort": null,
   "packagerPid": null,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
   "ngrokPid": null,
-=======
-  "packagerPort": 19001,
-  "packagerPid": 20628,
-  "expoServerNgrokUrl": "https://t8-cyv.anonymous.handl.exp.direct",
-  "packagerNgrokUrl": "https://packager.t8-cyv.anonymous.handl.exp.direct",
-  "ngrokPid": 4704,
->>>>>>> d7f369560ac5a7fcf0a72f55e1c659f2905ba9b7
->>>>>>> b45c36cb7ae9e4e2b2c18ffe19a5b449850fbd9d
   "webpackServerPort": 19006
 }
