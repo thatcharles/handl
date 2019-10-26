@@ -21,6 +21,7 @@ import Setting from './component/Setting'
 import QRcodes from './component/CardComponent'
 import Profile from './component/profile'
 import AddContact from './component/addContact'
+import QRScanner from './component/QRScanner'
 import { Ionicons } from '@expo/vector-icons'
 
 var qrCardsUpToDate = true;
@@ -30,6 +31,7 @@ const HomeBottomTabNavigator = createBottomTabNavigator(
       Profile,
       QRcodes,
       AddContact,
+      QRScanner,
   },
   {
       navigationOptions:({navigation})=>{
@@ -41,7 +43,7 @@ const HomeBottomTabNavigator = createBottomTabNavigator(
                 headerLeft: <Ionicons 
                                 name="md-menu" 
                                 onPress={()=>navigation.openDrawer()}
-                                size={30} 
+                                size={20} 
                                 style={{marginLeft: 15}}/>
             }
           }
@@ -51,7 +53,7 @@ const HomeBottomTabNavigator = createBottomTabNavigator(
               headerLeft: <Ionicons 
                               name="md-menu" 
                               onPress={()=>navigation.openDrawer()}
-                              size={30} 
+                              size={20} 
                               style={{marginLeft: 15}}/>
             }
           }
