@@ -23,13 +23,6 @@ import QRCode from 'react-native-qrcode-svg';
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const card = [
-    { id: "1", uri: require('../assets/QRcode/1.png') },
-    { id: "2", uri: require('../assets/QRcode/2.png') },
-    { id: "3", uri: require('../assets/QRcode/3.png') },
-    { id: "4", uri: require('../assets/QRcode/4.png') }
-]
-
 export default class CardComponent extends Component {
     constructor(props) {
         super(props);
