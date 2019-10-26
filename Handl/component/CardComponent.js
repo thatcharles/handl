@@ -76,6 +76,7 @@ export default class CardComponent extends Component {
                 if(card.display){
                     let textDisplay = '';
                     let qrData = '';
+
                     if(card.name == 'phone'){
                         qrData += 'BEGIN:VCARD\nVERSION:3.0\n';
                         qrData += 'N:' + card.data.lastName + ';' + card.data.firstName + '\n';
@@ -85,25 +86,33 @@ export default class CardComponent extends Component {
                         qrData += 'END:VCARD';
                         
                         textDisplay = 'My Phone Number';
+                        qrIcon = require('../assets/QRicons/phone.png');
                     }else if(card.name == 'facebook'){
-                        textDisplay = 'My Facebook Profile Page';
+                        textDisplay = 'My Facebook';
                         qrData = card.data;
+                        qrIcon = require('../assets/QRicons/facebook.png');
                     }else if(card.name == 'linkedin'){
-                        textDisplay = 'My LinkedIn Profile Page';
+                        textDisplay = 'My LinkedIn';
                         qrData = card.data;
+                        qrIcon = require('../assets/QRicons/linkedin.png');
                     }
                     qrCards.push(
                         <View key = {i} style={styles.slide}>
-                            <View style={styles.scrollview}>
-                            <QRCode
-                                value={qrData}
-                                size = {300}
-                            />
-                            </View>
-                            <Text style={{color: 'blue', fontSize: 18, marginTop: 15}}
-                                onPress={() => Linking.openURL(qrData)}>
+                            <Text style={{color: 'black', fontSize: 24, fontWeight: 'bold', marginBottom: 15}}>
                                 {textDisplay}
                             </Text>
+                            <View style={styles.scrollview}>
+                                <QRCode
+                                    value={qrData}
+                                    size = {SCREEN_WIDTH*0.7}
+                                />
+                            </View>
+                            <TouchableOpacity   style={{width: SCREEN_WIDTH*0.2, height: SCREEN_WIDTH*0.2, marginTop: -SCREEN_WIDTH*0.08, zIndex: 2}}
+                                                onPress={() => {if(card.name != 'phone') Linking.openURL(qrData);}}>
+                                <Image  source={qrIcon} 
+                                        style={{width: '100%', height: '100%', zIndex: 2}}
+                                />
+                            </TouchableOpacity>
                         </View>
                     );    
                 }
@@ -124,43 +133,13 @@ export default class CardComponent extends Component {
                 }}
                 // execute when scrolling
                 onScroll={(event) => {
-                    let logData = `Scroll to x = ${event.nativeEvent.contentOffset.x}`
+                    //let logData = `Scroll to x = ${event.nativeEvent.contentOffset.x}`
                     //console.log(logData)
                 }}
                 // update every 10ms
                 scrollEventThrottle={10}
                 >
                     {qrCards}
-    
-                    {/*
-                        <View style={styles.slide}>
-                        <View style={styles.scrollview}>
-                            <QRComponent/>
-                        </View>
-                        <Text>
-                            LinkedIn
-                        </Text>
-                        </View>
-                    
-                    
-    
-                    <View style={styles.slide}>
-                        <View style={styles.scroll2}>
-                            <Image source={require('../assets/QRcode/2.png')} style={{width: 300, height: 300}}/>
-                        </View>
-                        <Text>
-                            Facebook
-                        </Text>
-                    </View>
-    
-                    <View style={styles.slide}>
-                        <View style={styles.scroll3}>
-                            <Image source={require('../assets/QRcode/3.png')} style={{width: 300, height: 300}}/>
-                        </View>
-                        <Text>
-                            Instagram
-                        </Text>
-                    </View>*/}
     
                 </ScrollView>
             );
@@ -175,11 +154,15 @@ export default class CardComponent extends Component {
 
 const styles = StyleSheet.create({
     scrollview: {
-        backgroundColor: '#5f9ea0',
-        width: SCREEN_WIDTH,
-        height: SCREEN_WIDTH,
+        backgroundColor: '#ffffff',
+        width: SCREEN_WIDTH * 0.9,
+        height: SCREEN_WIDTH * 0.9,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft: SCREEN_WIDTH * 0.05,
+        marginRight: SCREEN_WIDTH * 0.05,
+        shadowOpacity: 0.5,
+        shadowRadius: 10
     },
     scroll2:{
         backgroundColor: '#5f9299',
