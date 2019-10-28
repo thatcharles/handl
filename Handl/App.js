@@ -112,8 +112,8 @@ const Navigator = createSwitchNavigator(
     Signup: Signup
   },
   {
-    initialRouteName: 'Login'
-    //initialRouteName: 'Home'
+    //initialRouteName: 'Login'
+    initialRouteName: 'Home'
   }
 );
 

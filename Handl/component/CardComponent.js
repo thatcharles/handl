@@ -201,3 +201,45 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     }
 })
+
+//AppRegistry.registerComponent('CardComponent', () => CardComponent);
+
+
+/*
+<ScrollView
+horizontal = {true}
+pagingEnabled = {true}
+// execute when scroll starts
+onMomentumScrollBegin={() => {
+
+}}
+// execute when scroll ends
+onMomentumScrollEnd={() => {
+
+}}
+// execute when scrolling
+onScroll={(event) => {
+    let logData = `Scroll to x = ${event.nativeEvent.contentOffset.x}`
+    //console.log(logData)
+}}
+// update every 10ms
+scrollEventThrottle={10}
+>
+<View style={styles.scrollview}>
+    <Text style={styles.text}>
+        Screen 1
+    </Text>
+</View>
+<View style={styles.scroll2}>
+    <Text style={styles.text}>
+        Screen 2
+    </Text>
+</View>
+<View style={styles.scroll3}>
+    <Text style={styles.text} background='#5f9382'>
+        Screen 3
+    </Text>
+</View>
+
+</ScrollView>
+*/

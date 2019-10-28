@@ -26,12 +26,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "package": "com.handl.handl"
-    },
-    "description": "",
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "Handl",
-  "name": "Handl"
+    "android": {},
+    "description": ""
+  }
 }
