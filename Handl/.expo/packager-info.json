@@ -1,9 +1,17 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+<<<<<<< HEAD
+  "packagerPid": 74897,
+  "expoServerNgrokUrl": "https://qs-ais.anonymous.handl.exp.direct",
+  "packagerNgrokUrl": "https://packager.qs-ais.anonymous.handl.exp.direct",
+  "ngrokPid": 74907
+=======
+  "packagerPid": 23284,
+  "expoServerNgrokUrl": "https://i9-8sb.kenneth7882.handl.exp.direct",
+  "packagerNgrokUrl": "https://packager.i9-8sb.kenneth7882.handl.exp.direct",
+  "ngrokPid": 6648,
+  "webpackServerPort": 19006
+>>>>>>> f231115c8e754eec31c0b91bbafea6eab07ae65a
 }

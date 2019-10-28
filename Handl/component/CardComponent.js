@@ -23,6 +23,7 @@ import QRCode from 'react-native-qrcode-svg';
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
+
 export default class CardComponent extends Component {
     constructor(props) {
         super(props);
@@ -91,6 +92,10 @@ export default class CardComponent extends Component {
                         textDisplay = 'My Facebook';
                         qrData = card.data;
                         qrIcon = require('../assets/QRicons/facebook.png');
+                    }else if(card.name == 'instagram'){
+                        textDisplay = 'My Instagram';
+                        qrData = card.data;
+                        qrIcon = require('../assets/QRicons/instagram.png');
                     }else if(card.name == 'linkedin'){
                         textDisplay = 'My LinkedIn';
                         qrData = card.data;
@@ -196,3 +201,45 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     }
 })
+
+//AppRegistry.registerComponent('CardComponent', () => CardComponent);
+
+
+/*
+<ScrollView
+horizontal = {true}
+pagingEnabled = {true}
+// execute when scroll starts
+onMomentumScrollBegin={() => {
+
+}}
+// execute when scroll ends
+onMomentumScrollEnd={() => {
+
+}}
+// execute when scrolling
+onScroll={(event) => {
+    let logData = `Scroll to x = ${event.nativeEvent.contentOffset.x}`
+    //console.log(logData)
+}}
+// update every 10ms
+scrollEventThrottle={10}
+>
+<View style={styles.scrollview}>
+    <Text style={styles.text}>
+        Screen 1
+    </Text>
+</View>
+<View style={styles.scroll2}>
+    <Text style={styles.text}>
+        Screen 2
+    </Text>
+</View>
+<View style={styles.scroll3}>
+    <Text style={styles.text} background='#5f9382'>
+        Screen 3
+    </Text>
+</View>
+
+</ScrollView>
+*/

@@ -3,6 +3,10 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "v2-ktd",
+<<<<<<< HEAD
+  "urlRandomness": "qs-ais",
+=======
+  "urlRandomness": "i9-8sb",
+>>>>>>> f231115c8e754eec31c0b91bbafea6eab07ae65a
   "https": false
 }

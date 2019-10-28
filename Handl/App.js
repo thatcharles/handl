@@ -24,8 +24,6 @@ import AddContact from './component/addContact'
 import QRScanner from './component/QRScanner'
 import { Ionicons } from '@expo/vector-icons'
 
-var qrCardsUpToDate = true;
-var userName = 'user2';
 const HomeBottomTabNavigator = createBottomTabNavigator(
   {
       Profile,
@@ -114,8 +112,8 @@ const Navigator = createSwitchNavigator(
     Signup: Signup
   },
   {
-    initialRouteName: 'Login'
-    //initialRouteName: 'Home'
+    //initialRouteName: 'Login'
+    initialRouteName: 'Home'
   }
 );
 
