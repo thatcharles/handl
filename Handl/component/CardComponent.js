@@ -23,6 +23,7 @@ import QRCode from 'react-native-qrcode-svg';
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
+
 export default class CardComponent extends Component {
     constructor(props) {
         super(props);
@@ -91,6 +92,10 @@ export default class CardComponent extends Component {
                         textDisplay = 'My Facebook';
                         qrData = card.data;
                         qrIcon = require('../assets/QRicons/facebook.png');
+                    }else if(card.name == 'instagram'){
+                        textDisplay = 'My Instagram';
+                        qrData = card.data;
+                        qrIcon = require('../assets/QRicons/instagram.png');
                     }else if(card.name == 'linkedin'){
                         textDisplay = 'My LinkedIn';
                         qrData = card.data;
