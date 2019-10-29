@@ -15,10 +15,6 @@ import {AppRegistry,
 
 import firebase from 'firebase'
 import 'firebase/firestore'
-import QRComponent from '../component/QRComponent'
-import CardComponent from '../component/CardComponent'
-import Profile from '../component/profile'
-// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 export default class Home extends Component {
     constructor(props) {
@@ -33,7 +29,6 @@ export default class Home extends Component {
             transactionType: ''
         }
     }
-
 
     submitForm = () => {
 
@@ -71,34 +66,6 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <CardComponent/>
-                <Profile/>
-            </View>
-        )
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    input: {
-        padding: 10,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        width: '100%',
-        marginBottom: 1,
-        borderRadius: 5
-    }
-});
-
-AppRegistry.registerComponent('Home', () => Home);
-// <QRComponent/>
-/*
-
                 <Text>Select Payment Type</Text>
                 <Picker 
                     selectedValue={this.state.paymentType}
@@ -124,4 +91,26 @@ AppRegistry.registerComponent('Home', () => Home);
                 < TouchableOpacity >
                     <Button title="Enter" onPress={this.submitForm}/>
                 </TouchableOpacity>
-*/
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    input: {
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        width: '100%',
+        marginBottom: 1,
+        borderRadius: 5
+    }
+});
+
+AppRegistry.registerComponent('Home', () => Home);

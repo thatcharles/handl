@@ -35,7 +35,7 @@ export default class Login extends Component {
           firebase
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => this.props.navigation.navigate('Intro'))
+            .then(() => this.props.navigation.navigate('Home'))
             .catch(error => this.setState({ errorMessage: 'Error: ' + error.message }));
         }
       }
@@ -61,6 +61,7 @@ export default class Login extends Component {
         return (
             <View style={styles.container}>
                 <Text>{this.state.errorMessage}</Text>
+                <Text style={styles.welcome}>Login to your app</Text>
                 <TextInput 
                     style={styles.input}
                     placeholder= {this.state.response}
@@ -80,14 +81,9 @@ export default class Login extends Component {
                     < TouchableOpacity style={styles.userBtn}>
                         <Text style={styles.btnText} onPress={this.logInHandler}>Login</Text>
                     </TouchableOpacity>
-                </View>
-                <View style={styles.btnContainer}>
                     < TouchableOpacity style={styles.userBtn}>
-                            <Text style={styles.btnText} onPress={() => this.props.navigation.navigate('Signup')}>Sign Up</Text>
-                        </TouchableOpacity>
-                </View>
-                <View>
-                    <Text style={styles.text}>Sign up with</Text>
+                        <Text style={styles.btnText} onPress={() => this.props.navigation.navigate('Signup')}>Sign Up</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -117,25 +113,16 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     userBtn: {
-        backgroundColor: "#5B2C6F",
+        backgroundColor: "#FFD700",
         padding: 15,
-        width: "100%",
-        marginTop: 15,
-        borderRadius: 30
+        width: "45%"
     },
     btnContainer: {
         flexDirection: "row",
         justifyContent: 'space-between',
-        width: "90%",
-        marginTop: 10
+        width: "90%"
     },
-    btnText: {
-        fontSize: 18,
-        textAlign: "center",
-        color: 'white'
-    },
-    text: {
-        marginTop: 40,
+    bteText: {
         fontSize: 18,
         textAlign: "center"
     }

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Handl",
-    "slug": "handl",
+    "name": "First App",
+    "slug": "first-app",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -25,11 +25,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "android": {},
-    "description": "",
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "Handl",
-  "name": "Handl"
+    }
+  }
 }
